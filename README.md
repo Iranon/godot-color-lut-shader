@@ -2,7 +2,6 @@
 
 Real-Time Color Grading using LUT shader for Godot 3.
 
-![](lut_title.png "LUT Title")
 
 This shader remaps all rendered pixel colors into new ones according to a provided 3D lookup table (LUT) texture. It's a highly versatile and efficient color correction technique for real-time applications in Godot.
 
@@ -36,10 +35,6 @@ To assist in the creation of the LUTs, the **screenshot plugin** enables taking 
 With this screenshot in hands, you can use your preferred image editor to apply your color transformations. In the end, just crop the upper-left corner of your image to get your final LUT (256x16 pixels by default).
 
 ## Implementation
-
-![](processing.png "LUT Title")
-
-*Demo for **RGB Cube visualization and discretization**: https://www.openprocessing.org/sketch/744896*
 
 This fragment shader uses a precomputed lookup table mapping the RGB domain to match your current pixel color with its respective position in the lookup and swap it with lookup's one.
 
