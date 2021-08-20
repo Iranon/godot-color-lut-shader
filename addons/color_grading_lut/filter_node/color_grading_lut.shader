@@ -1,9 +1,8 @@
 shader_type canvas_item;
 
 uniform sampler2D lut;
-uniform float lut_size = 16.0;
-
 uniform float filter_alpha : hint_range(0, 1) = 1.0;
+
 
 // Gets interpolation percentage for color  channel using floor and diff values.
 float get_interp_percent_channel(float channel_value, float floor_value, float diff_value){
@@ -34,6 +33,7 @@ vec3 convert_linear_to_srgb(vec3 linear_color){
 
 // Gets LUT mapped color using trilinear interpolation.
 vec4 get_lut_mapping_trilinear(vec4 old_color){
+	float lut_size = float(textureSize(lut, 0).y);
 	float lut_div = lut_size - 1.0;
 	// Get floor and ceil colors and diff from identity lut
 	vec3 old_color_lut_base = lut_div * old_color.rgb;
